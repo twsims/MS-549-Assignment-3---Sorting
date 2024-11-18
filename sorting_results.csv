@@ -1,0 +1,9 @@
+Data Size,Algorithm,Time (ms)
+100,Heap Sort,0
+100,Quick Sort,0
+1000,Heap Sort,0
+1000,Quick Sort,0
+10000,Heap Sort,3
+10000,Quick Sort,1
+100000,Heap Sort,37
+100000,Quick Sort,21
