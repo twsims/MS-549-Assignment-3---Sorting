@@ -73,10 +73,10 @@ void mergeSort(vector<int>& arr, int left, int right) {
 
 // Performance Data Collection
 void collectPerformanceData() {
-    vector<int> sizes = { 100, 1000, 10000, 100000 };
-    vector<tuple<int, double, double>> performanceData;
+    std::vector<int> sizes = { 100, 1000, 10000, 100000 };
+    std::vector<std::tuple<int, double, double>> performanceData;
 
-    cout << "Size\tQuick Sort\tMerge Sort\t\n";
+    std::cout << "Size\tQuick Sort\tMerge Sort\t\n";
 
     for (int size : sizes) {
         std::vector<int> arr;
@@ -86,19 +86,19 @@ void collectPerformanceData() {
 
         // Measure Quick Sort
         auto quickArr = arr;
-        auto start = chrono::high_resolution_clock::now();
+        auto start = std::chrono::high_resolution_clock::now();
         quickSort(quickArr, 0, quickArr.size() - 1);
-        auto end = chrono::high_resolution_clock::now();
-        double quickTime = chrono::duration<double, std::milli>(end - start).count();
+        auto end = std::chrono::high_resolution_clock::now();
+        double quickTime = std::chrono::duration<double, std::milli>(end - start).count();
 
         // Measure Merge Sort
         auto mergeArr = arr;
-        start = chrono::high_resolution_clock::now();
+        start = std::chrono::high_resolution_clock::now();
         mergeSort(mergeArr, 0, mergeArr.size() - 1);
-        end = chrono::high_resolution_clock::now();
-        double mergeTime = chrono::duration<double, std::milli>(end - start).count();
+        end = std::chrono::high_resolution_clock::now();
+        double mergeTime = std::chrono::duration<double, std::milli>(end - start).count();
 
-        cout << size << "\t" << quickTime << " ms\t" << mergeTime << " ms\t \n";
+        std::cout << size << "\t" << quickTime << " ms\t" << mergeTime << " ms\t \n";
 
         // Save data to vector
         performanceData.emplace_back(size, quickTime, mergeTime);
@@ -111,23 +111,23 @@ void collectPerformanceData() {
 // Print array elements
 void printArray(const std::vector<int>& arr) {
     if (arr.empty()) {
-        cout << "Array is empty.\n";
+        std::cout << "Array is empty.\n";
         return;
     }
 
-    cout << "Array elements: ";
+    std::cout << "Array elements: ";
     for (const auto& val : arr) {
-        cout << val << " ";
+        std::cout << val << " ";
     }
-    cout << "\n";
+    std::cout << "\n";
 }
 
 // Write performance data to a CSV file
-void writeToCSV(const string& filename, const vector<tuple<int, double, double>>& data) {
-    ofstream file(filename);
+void writeToCSV(const std::string& filename, const std::vector<std::tuple<int, double, double>>& data) {
+    std::ofstream file(filename);
 
     if (!file) {
-        cerr << "Error: Could not open file for writing.\n";
+        std::cerr << "Error: Could not open file for writing.\n";
         return;
     }
 
@@ -138,12 +138,12 @@ void writeToCSV(const string& filename, const vector<tuple<int, double, double>>
     for (const auto& row : data) {
         int size;
         double quickTime, mergeTime;
-        tie(size, quickTime, mergeTime) = row;
+        std::tie(size, quickTime, mergeTime) = row;
         file << size << "," << quickTime << "," << mergeTime << "\n";
     }
 
     file.close();
-    cout << "Performance data saved to " << filename << "\n";
+    std::cout << "Performance data saved to " << filename << "\n";
 }
 
 

@@ -13,10 +13,6 @@ int main() {
         cout << "Please make your selection: ";
         cin >> choice;
 
-        // Input validation loop for menu choice
-        cout << "Enter your choice: ";
-        cin >> choice;
-
         if (cin.fail()) { // Check if the input is not a valid integer
             cin.clear(); // Clear the error flag
             cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // Discard invalid input
@@ -50,7 +46,7 @@ int main() {
             cout << "Exiting program.\n";
             break;
         default:
-            cout << "Invalid choice. Try again.\n";
+            cout << "Not an integer between 1 and 4. Please try again.\n";
         }
     } while (choice != 4);
 

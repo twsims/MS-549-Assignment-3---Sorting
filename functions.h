@@ -5,14 +5,15 @@
 #include <vector>
 #include <iostream>
 #include <chrono>
+using namespace std; 
 
 // Function declarations
-void fillArray(std::vector<int>& arr, int size);
-void quickSort(std::vector<int>& arr, int low, int high);
-void mergeSort(std::vector<int>& arr, int left, int right);
+void fillArray(vector<int>& arr, int size);
+void quickSort(vector<int>& arr, int low, int high);
+void mergeSort(vector<int>& arr, int left, int right);
 void collectPerformanceData();
-void printArray(const std::vector<int>& arr);
-void writeToCSV(const std::string& filename, const std::vector<std::tuple<int, double, double>>& data);
+void printArray(const vector<int>& arr);
+void writeToCSV(const string& filename, const vector<tuple<int, double, double>>& data);
 void displayMenu();
 
 #endif // FUNCTIONS_H
