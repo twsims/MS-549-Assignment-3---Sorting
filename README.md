@@ -1,0 +1,1 @@
+This is an assignment to compare the merge sort to the quick sort and output the results to a csv for further analysis.  The application will request to input an array size and compare that array with 100, 1000, 10000 and 100000 values.  
